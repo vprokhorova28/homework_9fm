@@ -69,25 +69,7 @@ class MyMatrix:
             return MyMatrix(m)
 
     def __iadd__(self, other):
-        '''if len(self.__data) != len(other.__data):
-            raise ValueError('Different size')
-        else:
-            for i in range(len(self.__data)):
-                if len(self.__data[i]) != len(other.__data[i]):
-                    raise ValueError('Different size')
-            for i in range(len(self.__data)):
-                for j in range(len(self.__data[i])):
-                    self.__data[i][j] += other.__data[i][j]'''
-        return MyMatrix(self.__data) + MyMatrix(other.__data)
+        return self + other
 
     def __isub__(self, other):
-        '''if len(self.__data) != len(other.__data):
-            raise ValueError('Different size')
-        else:
-            for i in range(len(self.__data)):
-                if len(self.__data[i]) != len(other.__data[i]):
-                    raise ValueError('Different size')
-            for i in range(len(self.__data)):
-                for j in range(len(self.__data[i])):
-                    self.__data[i][j] -= other.__data[i][j]'''
-        return MyMatrix(self.__data) - MyMatrix(other.__data)
+        return self - other
