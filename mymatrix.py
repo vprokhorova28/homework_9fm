@@ -1,5 +1,6 @@
 import copy
 
+
 class MyMatrix:
     def __init__(self, data: list):
         self.__data = copy.deepcopy(data)
@@ -8,39 +9,41 @@ class MyMatrix:
         return copy.deepcopy(self.__data)
 
     def __repr__(self):
-        m_n = max(list(filter((lambda x: max(x)),[str(x) for x in self.__data])))
+        m_n = len(str(max(list(filter((lambda x: max(x)), [x for x in self.__data]))))) + 1
         for i in range(len(self.__data)):
-            copy_of_data = copy.deepcopy(self.__data)
-            list = [str(x) for x in copy_of_data]
-            for j in list:
-                if len(j) != m_n:
-                    j = ' ' * (m_n - len(j)) + j
-            another_list = ' '.join(list)
-        m = '\n'.join(another_list)
+            copy_of_data = copy.deepcopy(self.__data[i])
+            str_data = [str(x) for x in copy_of_data]
+            for j in range(len(str_data)):
+                #if j != 0:
+                if len(str_data[j]) != m_n:
+                    str_data[j] = ' ' * (m_n - len(str_data[j])) + str_data[j]
+                another_list = ' '.join(str_data)
+            m = '\n'.join(another_list)
+        return m
 
     def size(self):
         return (len(self.__data), len(self.__data[0]))
 
     def flip_up_down(self):
         self.__data.reverse()
-        return self.__data
+        return self
 
     def flip_left_right(self):
         [x.reverse() for x in self.__data]
-        return self.__data
+        return self
 
     def flipped_up_down(self):
-        return list(reversed(self.__data))
+        return MyMatrix(copy.deepcopy(self.__data)).flip_up_down()
 
     def flipped_left_right(self):
-        return [list(reversed(x)) for x in self.__data]
+        return MyMatrix(copy.deepcopy(self.__data)).flip_left_right()
 
     def transpose(self):
         self.__data = list(zip(*self.__data))
-        return self.__data
+        return self
 
     def transposed(self):
-        return list(zip(*self.__data))
+        return MyMatrix(copy.deepcopy(self.__data)).transpose()
 
     def __add__(self, other):
         if len(self.__data) != len(other.__data):
