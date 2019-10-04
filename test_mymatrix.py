@@ -47,12 +47,14 @@ def test_flip_left_right():
 def test_flipped_up_down():
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix2 = matrix.flipped_up_down()
-    assert(matrix2.get_data() = [[4, 7], [5, 6], [1, 2]])
+    assert(matrix2.get_data() == [[4, 7], [5, 6], [1, 2]])
+    assert(matrix.get_data() == [[1, 2], [5, 6], [4, 7]])
 
 def test_flipped_left_right():
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix2 = matrix.flipped_left_right()
-    assert(matrix2.get_data() = [[2, 1], [6, 5], [7, 4]])
+    assert(matrix2.get_data() == [[2, 1], [6, 5], [7, 4]])
+    assert(matrix.get_data() == [[1, 2], [5, 6], [4, 7]])
 
 def test_transpose():
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
