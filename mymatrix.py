@@ -22,6 +22,8 @@ class MyMatrix:
         return m
 
     def size(self):
+        if len(self.data) == 0:
+            return (0, 0)
         return (len(self.__data), len(self.__data[0]))
 
     def flip_up_down(self):
