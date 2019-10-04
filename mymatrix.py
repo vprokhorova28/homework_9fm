@@ -46,12 +46,9 @@ class MyMatrix:
         return MyMatrix(copy.deepcopy(self.__data)).transpose()
 
     def __add__(self, other):
-        if len(self.__data) != len(other.__data):
+        if self.size() != other.size():
             raise ValueError('Different size')
         else:
-            for i in range(len(self.__data)):
-                if len(self.__data[i]) != len(other.__data[i]):
-                    raise ValueError('Different size')
             m = copy.deepcopy(self.__data)
             for i in range(len(self.__data)):
                 for j in range(len(self.__data[i])):
@@ -59,12 +56,9 @@ class MyMatrix:
             return MyMatrix(m)
 
     def __sub__(self, other):
-        if len(self.__data) != len(other.__data):
+        if self.size() != other.size():
             raise ValueError('Different size')
         else:
-            for i in range(len(self.__data)):
-                if len(self.__data[i]) != len(other.__data[i]):
-                    raise ValueError('Different size')
             m = copy.deepcopy(self.__data)
             for i in range(len(self.__data)):
                 for j in range(len(self.__data[i])):
