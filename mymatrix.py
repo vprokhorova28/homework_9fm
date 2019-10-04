@@ -14,7 +14,7 @@ class MyMatrix:
             copy_of_data = copy.deepcopy(self.__data[i])
             str_data = [str(x) for x in copy_of_data]
             for j in range(len(str_data)):
-                #if j != 0:
+                # if j != 0:
                 if len(str_data[j]) != m_n:
                     str_data[j] = ' ' * (m_n - len(str_data[j])) + str_data[j]
                 another_list = ' '.join(str_data)
@@ -22,7 +22,7 @@ class MyMatrix:
         return m
 
     def size(self):
-        if len(self.data) == 0:
+        if len(self.__data) == 0:
             return (0, 0)
         return (len(self.__data), len(self.__data[0]))
 
@@ -42,6 +42,7 @@ class MyMatrix:
 
     def transpose(self):
         self.__data = list(zip(*self.__data))
+        self.__data = [list(x) for x in self.__data]
         return self
 
     def transposed(self):
@@ -72,3 +73,21 @@ class MyMatrix:
 
     def __isub__(self, other):
         return self - other
+
+    def __getitem__(self, item):
+        if type(item) == tuple:
+            print("getitem tuple")
+            return self.__data[item[0]][item[1]]
+        else:
+            print("getitem int")
+            print(item)
+            return self.__data[item]
+
+    def __setitem__(self, item, value):
+        if type(item) == tuple:
+            print("setitem tuple")
+            self.__data[item[0]][item[1]] = value
+        else:
+            print("setitem int")
+            print(item)
+            self.__data[item] = value
