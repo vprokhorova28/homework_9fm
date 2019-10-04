@@ -32,38 +32,60 @@ def test___isub__():
     assert(matrix1.get_data() == [[1, 2], [5, 6], [4, 1]])
 
 def test_size():
+    zero_matrix = []
+    size = zero_matrix.size()
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     s = matrix.size()
+    assert(size == (0, 0))
     assert(s == (3, 2))
 
 def test_flip_up_down():
+    zero_matrix = []
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     assert(matrix.flip_up_down().get_data() == [[4, 7], [5, 6], [1, 2]])
+    assert(zero_matrix.flip_up_down().get_data() = [])
 
 def test_flip_left_right():
+    zero_matrix = []
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     assert(matrix.flip_left_right().get_data() == [[2, 1], [6, 5], [7, 4]])
-
+    assert(zero_matrix.flip_left_right.get_data() = [])
+    
 def test_flipped_up_down():
+    zero_matrix = []
+    zero_matrixcopy = zero_matrix.flipped_up_down()
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix2 = matrix.flipped_up_down()
     assert(matrix2.get_data() == [[4, 7], [5, 6], [1, 2]])
     assert(matrix.get_data() == [[1, 2], [5, 6], [4, 7]])
+    assert(zero_matrix.get_data() == [])
+    assert(zero_matrixcopy.get_data() == [])
 
 def test_flipped_left_right():
+    zero_matrix = []
+    zero_matrixcopy = zero_matrix.flipped_left_right()
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix2 = matrix.flipped_left_right()
     assert(matrix2.get_data() == [[2, 1], [6, 5], [7, 4]])
     assert(matrix.get_data() == [[1, 2], [5, 6], [4, 7]])
+    assert(zero_matrix.get_data() == [])
+    assert(zero_matrixcopy.get_data() == [])
 
 def test_transpose():
+    zero_matrix = []
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix.transpose()
     assert(matrix.size() == (2, 3))
     assert(matrix.get_data() == [[1, 5, 4], [2, 6, 7]])
+    assert(zero_matrix.transpose.get_data() == [])
+
 
 def def test_transposed():
+    zero_matrix = []
+    zero_matrixcopy = zero_matrix.transposed()
     matrix = MyMatrix([[1, 2], [5, 6], [4, 7]])
     matrix2 = matrix.transposed()
     assert(matrix2.size() == (2, 3))
     assert(matrix2.get_data() == [[1, 5, 4], [2, 6, 7]])
+    assert(zero_matrix.get_data() == [])
+    assert(zero_matrixcopy.get_data() == [])
